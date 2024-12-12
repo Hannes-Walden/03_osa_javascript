@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 03 osa</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./layout.css">
+</head>
+<body>
+    <script>
+        //EHTOLAUSEET
+        //CANVOTE -FUNKTIO
+        function canVote(age) {
+            return age >=18;
+        }
+
+        //Oma funktio
+        function canDriveMoped(age) {
+            return age >=15;
+        }
+
+        //Kutsutaan omaa funktiota
+        console.log(canDriveMoped(15));
+
+
+        //GETTEMPERATURE -HARJOITUS
+        function getTemperature(temp) {
+            if (temp < 15) {
+                alert("Pue takki päälle!");
+            } else {
+                alert("Takkia ei tarvita");
+            }
+        }
+
+        //Kysytään lämpötilaa
+        let esimerkki = prompt("Anna lämpötila");
+
+        //Muutetaan syöte numeroksi
+        let numero = Number(esimerkki);
+
+        //Kutsutaan getTemperature -funktiota
+        getTemperature(numero);
+    </script>
+    <h1>Lämpötilan tarkistus</h1>
+    <p>Ohjelma kysyy lämpötilan, ja kertoo sitten, että täytyykö pukea takki päälle.</p>
+
+    <script>
+        //EVENORODD -HARJOITUS
+        function evenOrOdd(number) {
+            if (number % 2 === 0) {
+                return 'even';
+            } else {
+                return 'odd';
+            }
+        }
+
+        // Oma funktio
+        
+
+
+        //GREATERNUM -HARJOITUS
+        function greaterNum(num1, num2) {
+            if (num1 > num2) {
+                return num1;
+            } else {
+                return num2;
+            }
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>
