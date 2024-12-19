@@ -10,6 +10,7 @@
   <body>
     <script>
       //EHTOLAUSEET
+      //---------------
       //CANVOTE -FUNKTIO
       function canVote(age) {
         return age >= 18;
@@ -100,6 +101,200 @@
         }
         return `${määrä} ${substantiivi}a`;
       }
+
+      //SILMUKAT
+      //-----------
+      //SILMUKAT_01
+      //Käytetään while -silmukkaa
+      let j = 1;
+      while (j < 100) {
+        console.log(j);
+        j += 2;
+      }
+
+      //SILMUKAT_02
+      let start = 2;
+      let end = 98;
+
+      // Tulostetaan nykyinen arvo ja seuraava parillinen luku
+      while (start <= end) {
+        document.write(start + ", ");
+
+        // Päivitetään arvot
+        start += 2;
+        end -= 2;
+
+        // Jos end on pienempi tai yhtä suuri kuin 50, tulostetaan se ja lopetetaan.
+        if (end <= 50) {
+          document.write(end);
+          break;
+        }
+      }
+
+      //SILMUKAT_03
+      let etaisyys, aika;
+      while (etaisyys !== 0) {
+        etaisyys = Number(prompt("syötä etäisyys kilometreinä"));
+
+        if (etaisyys === 0) {
+          console.log("Ei enempää keskinopeuksia");
+          break;
+        }
+        aika = Number(prompt("Anna aika tunteina"));
+
+        let keskinopeus = etaisyys / aika;
+        let pyoristetty = keskinopeus.toFixed(1);
+        console.log(`Kun ajetaan ${etaisyys} kilometriä ${aika} tunnin aikana,
+        keskinopeus on ${pyoristetty} km/h`);
+      }
+
+      //SILMUKAT_04
+      let parilliset = 0;
+
+      for (let kertalaskuri = 0; kertalaskuri < 6; kertalaskuri++) {
+        let syote = Number(prompt("syötä numero"));
+        console.log("syöte on:", syote);
+
+        if (syote % 2 == 0) {
+          parilliset++;
+        }
+      }
+      console.log("parillisten määrä", parilliset);
+
+      let laskuri = 0;
+      let parillisetLuvut = 0;
+
+      do {
+        let input = Number(prompt("Anna lisää lukuja"));
+        if (input % 2 == 0) {
+          parillisetLuvut++;
+        }
+        laskuri++;
+      } while (laskuri < 20);
+
+      console.log("Parillisia lukuja oli " + parillisetLuvut);
+
+      //SILMUKAT_05
+      let summa = 0;
+      let laskento = 0;
+
+      // Pyydetään käyttäjältä numeroa.
+      while (true) {
+        let syöte = prompt("Syötä numero (syötä 0 lopettaaksesi):");
+
+        // Muutetaan syöte numeroksi.
+        let numero = parseFloat(syöte);
+
+        // Tarkistetaan, että syöte on kelvollinen numero.
+        if (isNaN(numero)) {
+          alert("Syötä kelvollinen numero");
+          continue;
+        }
+        // Jos numero on 0, niin lopetetaan ohjelma.
+        if (numero === 0) {
+          break;
+        }
+        // Lisätään numero laskuriin.
+        summa += numero;
+        laskento++;
+
+        // Lasketaan ja näytetään keskiarvo
+        if (laskento > 0) {
+          let keskiarvo = summa / laskento;
+          alert("Syöttämiesi numeroiden keskiarvo on: " + keskiarvo);
+        } else {
+          alert("Et syöttänyt numeroita.");
+        }
+      }
+
+      //SILMUKAT_06
+      // Määritetään alkuasetelma
+      let sum = 0;
+      let lukujenMaara = 0;
+
+      while (true) {
+        let numero = parseFloat(prompt("Syötä numero:"));
+
+        sum += numero;
+        lukujenMaara++;
+        let vastaus;
+
+        do {
+          vastaus = prompt("Haluatko jatkaa numeroiden antamista? (k/e)");
+
+          if (vastaus !== "k" && vastaus !== "e") {
+            alert("Virheellinen syöte. Vastaa 'k' tai 'e'.");
+          }
+        } while (vastaus !== "k" && vastaus !== "e");
+
+        if (vastaus === "e") {
+          break;
+        }
+      }
+
+      // Laske keskiarvo
+      let keskiarvo = summa / lukujenMaara;
+
+      // Näytä keskiarvo
+      console.log("Kaikkien syötettyjen numeroiden keskiarvo:", keskiarvo);
+
+      //SILMUKAT_07
+      // Määritetään alkuasetelma
+      let Summa = 0;
+      let LukujenMaara = 0;
+      let maxLuku = Infinity;
+      let minLuku = Infinity;
+
+      for (let i = 0; i < 5; i++) {
+        console.log(`Tämä on kierros nro ${i + 1}`);
+        let syote = Number(prompt("Anna lukuja"));
+
+        if (isNaN(syote)) {
+          console.log(syote);
+        } else {
+          Summa += syote;
+          LukujenMaara++;
+
+          console.log("Summa nyt:", Summa);
+          console.log("Lukujen määrä nyt:", LukujenMaara);
+
+          if (syote > maxLuku) {
+            maxLuku = syote;
+            console.log("Isoin luku nyt:", maxLuku);
+          }
+
+          if (syote < minLuku) {
+            minLuku = syote;
+            console.log("Pienin luku nyt:", minLuku);
+          }
+        }
+      }
+
+      let Keskiarvo = summa / LukujenMaara;
+      console.log("Lopussa lukujen summa on:", Summa);
+      console.log("Lopussa lukujen keskiarvo on:", Keskiarvo);
+      console.log("Isoin annettu luku on:", maxLuku);
+      console.log("Pienin annettu luku on:", minLuku);
+
+      //SILMUKAT_08
+      // Kysytään käyttäjältä, kuinka monta numeroa hän haluaa syöttää.
+      let MontakoNumeroa = parseInt(prompt("Montako numeroa haluat syöttää?"));
+
+      // Tallennetaan käyttäjän syöttämät numerot taulukkoon
+      let numerot = [];
+
+      // Pyydetään käyttäjältä numeroita
+      for (let i = 0; i < MontakoNumeroa; i++) {
+        let userNumber = parseFloat(prompt(`Syötä numero ${i + 1}:`));
+        numerot.push(userNumber);
+      }
+
+      // Selvitetään pienin ja suurin luku
+      let minNumero = Math.min(...numerot);
+      let maxNumero = Math.max(...numerot);
+
+      // Näytetään tulokset
+      alert(`Pienin on ${minNumero} ja suurin on ${maxNumero}.`);
     </script>
   </body>
 </html>
